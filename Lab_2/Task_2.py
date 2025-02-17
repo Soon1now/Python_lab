@@ -1,3 +1,4 @@
+
 def convert_dictionary(el_dictionary):
     dictionary = {}
 
@@ -14,3 +15,13 @@ def convert_dictionary(el_dictionary):
         result.append((char, dictionary[char].rstrip(', ')))
 
     return result
+
+english_latin = ["3",
+                 "apple - malum, pomum, popula",
+                 "fruit - baca, bacca, popum",
+                 "punishment - malum, multa"]
+
+result = convert_dictionary(english_latin)
+print(result[0])
+for char, dev in result[1:]:
+    print(f"{char} - {dev}")
