@@ -1,0 +1,79 @@
+.edit-form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.edit-form .section-title {
+    width: auto;
+    display: inline-block;
+    margin-bottom: 20px;
+
+    white-space: nowrap;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-family: "Jua", sans-serif;
+    font-size: 18px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: "Jura", sans-serif;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #741303;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.cancel-button {
+    background-color: #666;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 17px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+}
+
+.save-button {
+    background-color: #741303;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 17px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.cancel-button:hover {
+    background-color: #555;
+}
+
+.save-button:hover {
+    background-color: #8a1704;
+}

@@ -1,0 +1,104 @@
+
+{% extends 'teacher_panel/layout_teacher.html' %}
+{% load static %}
+
+{% block title %}Панель преподавателя - {{ name }}{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <!-- Сайдбар -->
+        <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+            <div class="position-sticky pt-3">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'teacher_panel:dashboard' %}">
+                            <i class="fas fa-book"></i> Мои курсы
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'teacher_panel:task' %}">
+                            <i class="fas fa-check-circle"></i> Мои задания
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Основное содержимое -->
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Добро пожаловать, {{ user.get_full_name }}</h1>
+            </div>
+
+            <!-- Курсы преподавателя -->
+            <div class="row">
+                <div class="col-12">
+                    <h2>Мои курсы</h2>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Название курса</th>
+                                    <th>Количество уроков</th>
+                                    <th>Статус</th>
+                                    <th>Действия</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for course in courses %}
+                                <tr>
+                                    <td>{{ course.course_name }}</td>
+                                    <td>{{ course.lesson_count }}</td>
+                                    <td>
+                                        {% if course.status %}
+                                        <span class="badge bg-success">Активен</span>
+                                        {% else %}
+                                        <span class="badge bg-secondary">Неактивен</span>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        <a href="#" 
+                                           class="btn btn-sm btn-primary">
+                                            <i class="fas fa-edit"></i> Управление
+                                        </a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Статистика -->
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Активных студентов</h5>
+                            <p class="card-text display-4">{{ user.teacher.active_students_count }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Выполненных заданий</h5>
+                            <p class="card-text display-4">{{ user.teacher.completed_assignments }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Средняя оценка студентов</h5>
+                            <p class="card-text display-4">{{ user.teacher.average_student_grade }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+{% endblock %}

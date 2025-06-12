@@ -1,0 +1,290 @@
+.create-horizontal-line {
+    display: block;
+    width: 100%;
+    height: 50px;
+    max-width: 1200px;
+    margin: 30px auto;
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, transparent, #263410, transparent);
+}
+
+.hero-section {
+    background-image: url('../img/tilebackgaround.jpeg'); 
+    background-size: cover;
+    background-position: center;
+    color: white; 
+    padding: 100px 90px; 
+    position: relative; 
+    text-align: center; 
+    border-radius: 30px;
+    margin: 30px 60px;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.hero-content {
+    position: relative; 
+    z-index: 1; 
+}
+
+.hero-content h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    font-weight: bold;
+    line-height: 1.3;
+}
+
+.stats-section {
+    padding: 50px 30px; 
+    text-align: center; 
+}
+
+.stats-row {
+    display: flex;
+    justify-content: space-around; 
+    margin-bottom: 30px; 
+}
+
+.stats-row:last-child {
+    margin-bottom: 0;
+}
+
+.stat-item {
+    flex: 1; 
+    text-align: left;
+    padding-left: 70px;
+}
+
+.stat-number {
+    display: block;
+    font-size: 4em;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-family: "Fustat", sans-serif;
+}
+
+.stat-description {
+    display: block;
+    color: #000000;
+}
+
+.custom-card {
+    background-color: #263410;
+    color: #ffffff;
+    border-radius: 30px;
+    padding: 20px;
+    height: 550px;
+    position: relative;
+    font-family:"Fustat", sans-serif;
+}
+
+.list-group-item {
+    background-color: transparent;
+    color: #d3d3d3;
+    border: none;
+    margin-left: 100px;
+    font-family: "Jura", sans-serif;
+    font-size: 30px;
+    padding-top: 40px;
+}
+
+.image-placeholder {
+    background-image: url('../img/notebook.png'); 
+    background-size: cover;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    width: 450px;
+    height: 450px;
+    background-color: transparent;
+    border-radius: 10px;
+}
+
+.custom-card2 {
+    background-color: #ffffff;
+    color: #741303;
+    border-radius: 10px;
+    padding: 20px;
+    height: 400px;
+    position: relative;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.1em;
+    letter-spacing: 18px;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    font-family: "Fustat", sans-serif;
+}
+
+.col-benefit {
+    padding: 15px;
+}
+
+.benefit-item {
+    background-color: #fff;
+    border: 2px solid #8b4513;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.benefit-text {
+    font-size: 0.9em;
+    text-align: left;
+}
+
+.image-placeholder2 {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 150px;
+    background-color: #d2b48c;
+    border-radius: 10px;
+}
+
+.cursor {
+    color: #8b4513;
+    font-size: 0.8em;
+    margin-top: 10px;
+}
+
+.contact-info strong {
+    font-weight: bold;
+}
+
+.contact-info a {
+    color: #000;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 1200px) {
+    .hero-section {
+        margin: 30px 30px;
+        padding: 80px 60px;
+    }
+
+    .image-placeholder {
+        width: 350px;
+        height: 350px;
+    }
+
+    .list-group-item {
+        margin-left: 50px;
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero-section {
+        margin: 20px 20px;
+        padding: 60px 40px;
+    }
+
+    .hero-content h1 {
+        font-size: 2em;
+    }
+
+    .stats-row {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .stat-item {
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .image-placeholder {
+        display: none;
+    }
+
+    .list-group-item {
+        margin-left: 20px;
+        font-size: 20px;
+    }
+
+    .custom-card {
+        height: auto;
+        min-height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        margin: 15px;
+        padding: 40px 20px;
+        border-radius: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8em;
+    }
+
+    .section-title {
+        font-size: 1.8em;
+        letter-spacing: 12px;
+    }
+
+    .custom-card2 {
+        height: auto;
+        min-height: 300px;
+    }
+
+    .image-placeholder2 {
+        position: relative;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        margin: 10px;
+        padding: 30px 15px;
+    }
+
+    .hero-content h1 {
+        font-size: 1.5em;
+    }
+
+    .section-title {
+        font-size: 1.5em;
+        letter-spacing: 8px;
+    }
+
+    .stat-number {
+        font-size: 3em;
+    }
+
+    .benefit-item {
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+    }
+}
+
+
+
+

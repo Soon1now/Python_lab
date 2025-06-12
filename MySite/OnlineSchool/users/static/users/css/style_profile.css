@@ -1,0 +1,160 @@
+.profile-container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.profile-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 30px;
+    object-fit: cover;
+}
+
+.profile-info {
+    flex: 1;
+}
+
+.profile-info h1 {
+    color: #333;
+    margin-bottom: 10px;
+    font-family: "Jura", sans-serif;
+}
+
+.profile-info p {
+    color: #666;
+    margin-bottom: 5px;
+    font-family: "Jura", sans-serif;
+}
+
+.profile-section {
+    margin-bottom: 30px;
+}
+
+.profile-section h2 {
+    color: #333;
+    margin-bottom: 15px;
+    font-family: "Jura", sans-serif;
+    border-bottom: 2px solid #263410;
+    padding-bottom: 5px;
+}
+
+.profile-section p {
+    color: #666;
+    line-height: 1.6;
+    font-family: "Jura", sans-serif;
+}
+
+.btn-edit {
+    background-color: #263410;
+    color: white;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: "Jura", sans-serif;
+}
+
+.btn-edit:hover {
+    background-color: #1a250c;
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 768px) {
+    .profile-container {
+        margin: 20px;
+        padding: 15px;
+    }
+
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-avatar {
+        width: 120px;
+        height: 120px;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .profile-info h1 {
+        font-size: 1.8em;
+    }
+
+    .profile-section h2 {
+        font-size: 1.4em;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-container {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .profile-avatar {
+        width: 100px;
+        height: 100px;
+    }
+
+    .profile-info h1 {
+        font-size: 1.5em;
+    }
+
+    .profile-info p {
+        font-size: 14px;
+    }
+
+    .profile-section h2 {
+        font-size: 1.2em;
+    }
+
+    .profile-section p {
+        font-size: 14px;
+    }
+
+    .btn-edit {
+        font-size: 13px;
+        padding: 6px 15px;
+    }
+}
+
+@media (max-width: 360px) {
+    .profile-avatar {
+        width: 80px;
+        height: 80px;
+    }
+
+    .profile-info h1 {
+        font-size: 1.3em;
+    }
+
+    .profile-info p {
+        font-size: 13px;
+    }
+
+    .profile-section h2 {
+        font-size: 1.1em;
+    }
+
+    .profile-section p {
+        font-size: 13px;
+    }
+
+    .btn-edit {
+        font-size: 12px;
+        padding: 5px 12px;
+    }
+} 

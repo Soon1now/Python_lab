@@ -1,0 +1,75 @@
+.custom-header {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 40px 30px;
+    border-bottom: 1px solid #26341015;
+    height: 60px;
+}
+body{
+    font-family: "Jura", sans-serif;
+    color: #263410;
+    background-color: white;
+}
+.create-line {
+    height: 32px;  
+    width: 0;  
+    border-left: 0.8px solid #263410;  
+    margin: 0 10px;  
+}
+.nav-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+}
+.nav-link {
+    font-size: 18px;
+    text-decoration: none;
+    color: #333;
+}
+.header-left {
+    padding-left: 10px;
+    display: flex;
+    align-items: center;      
+    gap: 10px;     
+    font-family: "Jua", sans-serif;      
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 768px) {
+    .custom-header {
+        padding: 20px 15px;
+        flex-direction: column;
+        height: auto;
+        gap: 15px;
+    }
+
+    .header-left {
+        padding-left: 0;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .nav-link {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .custom-header {
+        padding: 15px 10px;
+    }
+
+    .header-left h1 {
+        font-size: 20px;
+    }
+
+    .nav-link {
+        font-size: 14px;
+    }
+}

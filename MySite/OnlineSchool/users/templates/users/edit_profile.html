@@ -1,0 +1,63 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'users/css/style_account.css' %}" />
+<link rel="stylesheet" href="{% static 'users/css/style_edit_profile.css' %}" />
+{% endblock %}
+
+{% block title %}Редактирование профиля{% endblock %}
+
+{% block content %}
+<div class="profile-container">
+    {% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+        <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="edit-form">
+        <h2 class="section-title">Редактирование профиля</h2>
+        
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="last_name">Фамилия *</label>
+                <input type="text" id="last_name" name="last_name" value="{{ user.last_name }}" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="first_name">Имя *</label>
+                <input type="text" id="first_name" name="first_name" value="{{ user.first_name }}" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="patronymic">Отчество</label>
+                <input type="text" id="patronymic" name="patronymic" value="{{ user.patronymic|default:'' }}">
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Почта *</label>
+                <input type="email" id="email" name="email" value="{{ user.email }}" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="number_phone">Телефон</label>
+                <input type="tel" id="number_phone" name="number_phone" value="{{ user.number_phone|default:'' }}" placeholder="+7XXXXXXXXXX">
+            </div>
+            <div class="form-group">
+                <label for="password">Пароль</label>
+                <input type="text" id="password" name="password" value="{{ user.password|default:'' }}" required>
+            </div>
+            <div class="form-buttons">
+                <a href="{% url 'users:account' %}" class="cancel-button">Отмена</a>
+                <button type="submit" class="save-button">Сохранить</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %} 

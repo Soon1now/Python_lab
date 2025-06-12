@@ -1,0 +1,57 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'courses/css/style_current_course.css' %}" />
+{% endblock %}
+
+{% block title %}Текущий курс{% endblock %}
+
+{% block content %}
+<div class="container">
+  <header>
+    <a href="{% url 'users:account' %}">← Назад в личный кабинет</a>
+  </header>
+  <main>
+    <div class="left-column">
+      <img
+        src="{% static 'img/course.jpeg' %}"
+        alt="Course Illustration"
+      />
+    </div>
+    <div class="right-column">
+      <h1>Курс «{{ course.name }}»</h1>
+      <p>{{ course.description }}</p>
+      <img src="{% static 'img/Clock.png' %}" alt="clock" style="margin-left:10px; width:20px" />
+      <div class="duration">{{ course.duration }}</div>
+      <div class="duration">месяцев</div>
+      <div class="tags">
+        <span>#{{ course.language }}</span>
+        <span>#{{ course.difficulty }}</span>
+
+      </div>
+    </div>
+  </main>
+
+  <hr class="create-horizontal-line">
+
+  <section class="program">
+    <h2>ПОСЛЕДНЕЕ АКТИВНОЕ ЗАНЯТИЕ</h2>
+    <div class="module" style="background-color: #d6c9b6e0;"><a href="#">2. Дизайн и адаптивная верстка</a></div>
+    <h2>ПРОГРАММА ОБУЧЕНИЯ</h2>
+    {% for lesson in lessons %}
+    {% if lesson.status %}
+    <div class="module">
+      <a href="{% url 'courses:lesson' lesson.id %}">{{ lesson.number }}. {{ lesson.title }}</a>
+    </div>
+    {% else %}
+    <div class="module block">
+      <a href="{% url 'courses:lesson' lesson.id %}">{{ lesson.number }}. {{ lesson.title }}</a>
+    </div>
+    {% endif %}
+
+    {% endfor %}
+  </section>
+
+  <hr class="create-horizontal-line" style="margin-top: 65px;">
+</div>
+{% endblock %}

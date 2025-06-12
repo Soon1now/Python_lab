@@ -1,0 +1,119 @@
+{% extends 'main/layout.html' %} 
+{% load static %} {% block styles %}
+<link rel="stylesheet" href="{% static 'users/css/style_account.css' %}" />
+{% endblock %} {% block title %}Личный кабинет{% endblock %} {% block content %}
+<div class="profile-container">
+  {% if messages %}
+  <div class="messages">
+    {% for message in messages %}
+    <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+      {{ message }}
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <div class="profile-header">
+    <div class="profile-picture-area">
+      <div class="profile-placeholder">
+        <img src="{% static 'img/user.png' %}" alt="user" width="100%" />
+      </div>
+    </div>
+    <div class="user-data">
+      <div class="data-header">
+        <h2 class="section-title">Личные данные</h2>
+        <a href="{% url 'users:edit_profile' %}" class="edit-button">Редактировать</a>
+        <form method="post" action="{% url 'authentication:logout' %}" style="display:inline; margin-left: 16px;">
+          {% csrf_token %}
+          <button type="submit" class="edit-button" style="background:#741303; color:#fff; border:none;">Выйти</button>
+        </form>
+      </div>
+      <div class="data-item name-group">
+        <p class="label">ФИО</p>
+        <div class="name-values">
+          <p class="value">{{ user.last_name }}</p>
+          <p class="value">{{ user.first_name }}</p>
+          <p class="value">{{ user.patronymic }}</p>
+        </div>
+      </div>
+
+      <div class="data-item">
+        <p class="label">Почта</p>
+        <p class="value">{{ user.email }}</p>
+      </div>
+      {% if user.number_phone %}
+      <div class="data-item">
+        <p class="label">Телефон</p>
+        <p class="value">{{ user.number_phone }}</p>
+      </div>
+      {% endif %}
+      {% if student_data %}
+      <div class="data-item">
+        <p class="label">Количество курсов</p>
+        <p class="value">{{ student_data.count_course }}</p>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <section class="active-courses">
+    <h2 class="section-title">Активные курсы</h2>
+    <div class="courses-grid-wrapper">
+      <div class="courses-grid">
+        {% if active_courses %}
+          {% for course in active_courses %}
+            <div class="course-card">
+              <div class="course-image">
+                {% if course.image %}
+                  <img src="{{ course.image.url }}" alt="{{ course.course_name }}" />
+                {% else %}
+                  <img src="{% static 'img/course.jpeg' %}" alt="course" />
+                {% endif %}
+              </div>
+              <div class="course-info">
+                <h3 class="course-title">{{ course.course_name }}</h3>
+                <p class="course-language">Язык: {{ course.language_programming }}</p>
+                <p class="course-duration">Длительность: {{ course.duraction }} мес.</p>
+                <a href="{% url 'courses:current_course' course_id=course.id %}" class="want-btn">Перейти</a>
+              </div>
+            </div>
+          {% endfor %}
+        {% else %}
+          <div>Нет активных курсов</div>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  {% if completed_courses %}
+    <section class="completed-courses">
+      <h2 class="section-title completed">Завершенные курсы</h2>
+      <div class="courses-grid-wrapper">
+        <div class="courses-grid">
+          {% for course in completed_courses %}
+            <div class="course-card completed">
+              <div class="course-image">
+                {% if course.image %}
+                  <img src="{{ course.image.url }}" alt="{{ course.course_name }}" />
+                {% else %}
+                  <img src="{% static 'img/course.jpeg' %}" alt="course" />
+                {% endif %}
+              </div>
+              <div class="course-info">
+                <h3 class="course-title">{{ course.course_name }}</h3>
+                <p class="course-language">Язык: {{ course.language_programming }}</p>
+                <p class="course-duration">Длительность: {{ course.duraction }} мес.</p>
+                {% if course.price %}
+                  <p class="course-price">Стоимость: {{ course.price }} ₽</p>
+                {% endif %}
+                <span class="completed-label">Завершён</span>
+                <a href="{% url 'courses:current_course' course_id=course.id_course %}" class="want-btn">Подробнее</a>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+  {% endif %}
+</div>
+{% endblock %}

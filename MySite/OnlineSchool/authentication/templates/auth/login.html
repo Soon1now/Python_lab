@@ -1,0 +1,92 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вход</title>
+  <link rel="stylesheet" href="{% static '/auth/css/style_login.css' %}">
+</head>
+<body class="body">
+  <div class="popups_inner">
+    <div class="popup popup_login" style="height: 400px; width: 800px">
+      <img src="{% static 'img/road.png' %}" alt="road" class="popup-image" />
+      <span class="close-btn"
+        ><a href="/" style="text-decoration: none; color: white">×</a></span
+      >
+      <h1
+        class="section-title2"
+        style="margin-left: auto; margin-right: auto; text-align: center"
+      >
+        Вход в аккаунт
+      </h1>
+
+      {% if messages %}
+      <div class="messages">
+          {% for message in messages %}
+          <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+              {{ message }}
+          </div>
+          {% endfor %}
+      </div>
+      {% endif %}
+
+      <form method="POST" class="form" style="margin-top: 100px; margin-right: 60px">
+        {% csrf_token %}
+        <div class="mb-3">
+          <h5>Email</h5>
+          <input type="email" name="email" placeholder="Введите ваш email" required />
+        </div>
+        <div class="mb-3">
+          <h5>Пароль</h5>
+          <input type="password" name="password" placeholder="Введите пароль" required />
+        </div>
+        <div style="text-align: center; margin-bottom: 10px">
+          <a href="/auth/registration" style="display: inline-block; color: #263410; margin-right: 20px">Зарегистрироваться</a>
+          <a href="{% url 'authentication:password_reset' %}" style="display: inline-block; color: #263410">Забыли пароль?</a>
+        </div>
+        <input type="submit" value="Войти" />
+      </form>
+    </div>
+  </div>
+
+  <style>
+   .messages-container {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      width: 100%;
+      max-width: 600px;
+      pointer-events: none;
+    }
+    .messages {
+      width: 100%;
+      padding: 10px;
+    }
+    .alert {
+      padding: 15px 20px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      text-align: center;
+      font-family: "Jura", sans-serif;
+      font-size: 16px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      pointer-events: auto;
+    }
+    .alert-success {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    .alert-error {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+  </style>
+</body>
+</html>
+

@@ -1,0 +1,47 @@
+.custom-header {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 40px 30px;
+    border-bottom: 1px solid #263410;
+    height: 60px;
+}
+body{
+    font-family: "Jura", sans-serif;
+    color: #263410;
+    background-color: white;
+}
+.header-left {
+    padding-left: 10px;
+    display: flex;
+    align-items: center;      
+    gap: 10px;     
+    font-family: "Jua", sans-serif;      
+}
+.create-line {
+    height: 32px;  
+    width: 0;  
+    border-left: 0.8px solid #263410;  
+    margin: 0 10px;  
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    margin-left: auto;
+}
+
+.auth-btn {
+    appearance: none;
+    border-radius: 17px;
+    background: #741303;
+    color: #fff;
+    padding: 8px 16px;
+    font-size: 16px;
+    margin: 0 0 0 35px;
+    width: auto;
+    text-decoration: none;
+    text-align: center;
+}
+
+

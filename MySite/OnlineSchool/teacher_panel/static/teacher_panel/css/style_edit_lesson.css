@@ -1,0 +1,262 @@
+.edit-lesson-container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.edit-lesson-container h1 {
+    color: #333;
+    margin-bottom: 20px;
+    font-family: "Jura", sans-serif;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+    font-family: "Jura", sans-serif;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: "Jura", sans-serif;
+}
+
+.form-group textarea {
+    height: 200px;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #263410;
+}
+
+.video-preview {
+    width: 100%;
+    max-width: 600px;
+    height: 338px;
+    margin: 10px auto;
+    display: block;
+    border-radius: 10px;
+}
+
+.materials-section {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.materials-section h2 {
+    color: #333;
+    margin-bottom: 15px;
+    font-family: "Jura", sans-serif;
+}
+
+.material-item {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.material-item span {
+    color: #333;
+    font-family: "Jura", sans-serif;
+}
+
+.material-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-add-material,
+.btn-save,
+.btn-cancel {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: "Jura", sans-serif;
+}
+
+.btn-add-material {
+    background-color: #263410;
+    color: white;
+}
+
+.btn-save {
+    background-color: #263410;
+    color: white;
+    display: block;
+    margin: 20px auto;
+}
+
+.btn-cancel {
+    background-color: #666;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn-delete {
+    background-color: #741303;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    font-family: "Jura", sans-serif;
+}
+
+.btn-add-material:hover,
+.btn-save:hover {
+    background-color: #1a250c;
+}
+
+.btn-cancel:hover {
+    background-color: #555;
+}
+
+.btn-delete:hover {
+    background-color: #5c1105;
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 768px) {
+    .edit-lesson-container {
+        margin: 20px;
+        padding: 15px;
+    }
+
+    .edit-lesson-container h1 {
+        font-size: 1.8em;
+    }
+
+    .video-preview {
+        height: 280px;
+    }
+
+    .materials-section h2 {
+        font-size: 1.4em;
+    }
+}
+
+@media (max-width: 480px) {
+    .edit-lesson-container {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .edit-lesson-container h1 {
+        font-size: 1.5em;
+    }
+
+    .form-group label {
+        font-size: 14px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        font-size: 14px;
+        padding: 6px;
+    }
+
+    .video-preview {
+        height: 240px;
+    }
+
+    .materials-section h2 {
+        font-size: 1.3em;
+    }
+
+    .material-item {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .material-item span {
+        font-size: 14px;
+    }
+
+    .material-actions {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .btn-add-material,
+    .btn-save,
+    .btn-cancel {
+        font-size: 13px;
+        padding: 6px 15px;
+    }
+
+    .btn-delete {
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+}
+
+@media (max-width: 360px) {
+    .edit-lesson-container h1 {
+        font-size: 1.3em;
+    }
+
+    .form-group label {
+        font-size: 13px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        font-size: 13px;
+        padding: 5px;
+    }
+
+    .video-preview {
+        height: 200px;
+    }
+
+    .materials-section h2 {
+        font-size: 1.2em;
+    }
+
+    .material-item span {
+        font-size: 13px;
+    }
+
+    .btn-add-material,
+    .btn-save,
+    .btn-cancel {
+        font-size: 12px;
+        padding: 5px 12px;
+    }
+
+    .btn-delete {
+        font-size: 11px;
+        padding: 4px 8px;
+    }
+} 

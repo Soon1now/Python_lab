@@ -1,0 +1,257 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: "Jura", sans-serif;
+    color: #000000;
+}
+
+header a {
+  /* Style the back link */
+  display: block;
+  margin-bottom: 20px;
+  color: #555; /* Example color */
+  text-decoration: none;
+}
+
+header h1 {
+  /* Style the main heading */
+  font-size: 2em;
+  color: #333; /* Example color */
+  margin-bottom: 20px;
+}
+
+main {
+  display: flex;
+  gap: 30px; /* Space between image and text */
+}
+
+.left-column img {
+  /* Style the image */
+  width: 300px; /* Example width */
+  border-radius: 10px; /* Rounded corners */
+}
+
+.right-column p {
+  color: #263410;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  margin-left: 10px;
+  width: 70%;
+}
+.right-column h1 {
+ font-family: "Jura", sans-serif;
+ font-weight: bold;
+}
+
+.duration {
+  margin: 15px 2px;
+  display: inline;
+  font-family: "Jua", sans-serif;
+}
+
+.tags {
+  /* Style the tags container */
+  display: flex;
+  gap: 5px;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+.tags span {
+  /* Style individual tags */
+  background-color: #eee; /* Example background */
+  color: #263410; /* Example text color */
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.9em;
+}
+.create-horizontal-line {
+    display: block;
+    width: 100%;
+    height: 50px;
+    max-width: 1200px;
+    margin: 30px auto;
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, transparent, #263410, transparent);
+}
+.program h2 {
+  font-family:  "Fustat", sans-serif;
+  font-size: 1.5em;
+  color: #333; /* Example color */
+  margin-top: 30px;
+  margin-bottom: 25px;
+  text-align: center;
+  letter-spacing: 5px;
+}
+
+.program .module {
+  /* Style each module */
+  background-color: #B5BAAD; /* Example background */
+  color: #000000; /* Example text color */
+  padding: 15px;
+  width: 70%;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.purchase-area {
+  /* Style the purchase area container */
+  align-items: center;
+  margin-top: 30px;
+  margin-left: 40px;
+}
+
+.purchase-area h3 {
+
+  font-size: 1.6em;
+  color: #000000; 
+    margin-left: 13%;
+  font-weight: bold;
+  display: block;
+}
+
+.purchase-area .price {
+  /* Style the price */
+  font-size: 1.5em;
+  color: #741303; /* Example red color */
+  font-weight: bold;
+
+}
+
+.purchase-area .purchase-button {
+  /* Style the purchase button */
+  background-color: #741303; /* Example red color */
+  color: white;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  margin-left: 10%;
+  margin-top: 10px;
+  font-size: 1em;
+}
+
+.purchase-area .purchase-button:hover {
+  /* Optional hover effect */
+  background-color: #5c1105;
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 1200px) {
+    .container {
+        padding: 15px;
+    }
+
+    .right-column p {
+        width: 85%;
+    }
+
+    .program .module {
+        width: 85%;
+    }
+
+    .purchase-area {
+        margin-left: 20px;
+    }
+}
+
+@media (max-width: 992px) {
+    main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .left-column img {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .right-column p {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .tags {
+        margin-left: 0;
+        flex-wrap: wrap;
+    }
+
+    .program .module {
+        width: 100%;
+    }
+
+    .purchase-area {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .purchase-area h3 {
+        margin-left: 0;
+    }
+
+    .purchase-area .purchase-button {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    .program h2 {
+        font-size: 1.3em;
+        letter-spacing: 3px;
+    }
+
+    .purchase-area h3 {
+        font-size: 1.4em;
+    }
+
+    .purchase-area .price {
+        font-size: 1.3em;
+    }
+
+    .purchase-area .purchase-button {
+        font-size: 0.9em;
+        padding: 8px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    .program h2 {
+        font-size: 1.2em;
+        letter-spacing: 2px;
+    }
+
+    .tags span {
+        font-size: 0.8em;
+        padding: 4px 8px;
+    }
+
+    .purchase-area h3 {
+        font-size: 1.2em;
+    }
+
+    .purchase-area .price {
+        font-size: 1.1em;
+    }
+
+    .purchase-area .purchase-button {
+        font-size: 0.85em;
+        padding: 6px 15px;
+    }
+}

@@ -1,0 +1,68 @@
+{% extends 'main/layout.html' %} {% load static %} {% block styles %}
+<link rel="stylesheet" href="{% static 'courses/css/style_about_course.css' %}" />
+{% endblock %} {% block title %}{{ course.name }}{% endblock %} {% block content %}
+<div class="container">
+  <header>
+    <a href="/courses">← Назад к курсам</a>
+  </header>
+  <main>
+    <div class="left-column">
+      {% if course.image %}
+        <img src="{{ course.image }}" alt="{{ course.name }}" />
+      {% else %}
+        <img src="{% static 'img/course.jpeg' %}" alt="{{ course.name }}" />
+      {% endif %}
+    </div>
+    <div class="right-column">
+      <h1>Курс «{{ course.name }}»</h1>
+      <p>{{ course.description }}</p>
+      
+      {% if course.duraction %}
+        <div class="duration-container">
+          <img src="{% static 'img/Clock.png' %}" alt="clock" style="margin-left:10px; width:20px" />
+          <div class="duration">{{ course.duraction }}</div>
+          <div class="duration">месяцев</div>
+        </div>
+      {% endif %}
+      
+      <div class="tags">
+        <span>#{{ course.language_programming }}</span>
+        {% if teacher %}
+          <span>#Преподаватель: {{ teacher.full_name }}</span>
+        {% endif %}
+      </div>
+    </div>
+  </main>
+
+  <hr class="create-horizontal-line">
+
+  <section class="program">
+    <h2>ПРОГРАММА ОБУЧЕНИЯ</h2>
+    {% if lessons %}
+      {% for lesson in lessons %}
+        <div class="module">
+          {% if lesson.number %}{{ lesson.number }}. {% endif %}{{ lesson.title }}
+          {% if lesson.description %}
+            <p class="lesson-description">{{ lesson.description }}</p>
+          {% endif %}
+        </div>
+      {% endfor %}
+    {% else %}
+      <div class="module">Программа обучения пока не доступна</div>
+    {% endif %}
+  </section>
+
+  <hr class="create-horizontal-line" style="margin-top: 65px;">
+
+  <section class="purchase-area">
+    <h3>СТОИМОСТЬ</h3>
+    {% if course.price %}
+      <span class="price" style="margin-left: 33%">{{ course.price|floatformat:0 }}</span>
+      <span class="price" style="color: black;">рублей</span>
+    {% else %}
+      <span class="price" style="margin-left: 33%">Цена не указана</span>
+    {% endif %}
+    <button class="purchase-button">Приобрести</button>
+  </section>
+</div>
+{% endblock %}

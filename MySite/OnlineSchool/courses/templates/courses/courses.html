@@ -1,0 +1,104 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'courses/css/style_courses.css' %}">
+{% endblock %}
+
+{% block title %}Все курсы{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="header1">
+        <a href="/" class="back-btn">← Главная</a>
+        <div class="header-title">
+            <label>Каталог курсов</label>
+        </div>
+    </div>
+
+    <div class="header2">
+        <form method="get" action="{% url 'courses:courses' %}" class="search-container" style="display: flex;">
+            <input type="text" name="search" class="search-bar" placeholder="Поиск по названию (Shift+P)" value="{{ request.GET.search }}" accesskey="p" title="Нажмите Shift+P для фокуса" style="width: 570px;">
+            <button type="submit" class="search-btn">🔍</button>
+            <div class="sort-container" style="margin-left: 25%;">
+                <select class="sort-select" name="sort" onchange="this.form.submit()">
+                    <option value="">Сортировка</option>
+                    <option value="a-z" {% if request.GET.sort == 'a-z' %}selected{% endif %}>А-Я</option>
+                    <option value="z-a" {% if request.GET.sort == 'z-a' %}selected{% endif %}>Я-А</option>
+                    <option value="price-asc" {% if request.GET.sort == 'price-asc' %}selected{% endif %}>По стоимости (возр.)</option>
+                    <option value="price-desc" {% if request.GET.sort == 'price-desc' %}selected{% endif %}>По стоимости (убыв.)</option>
+                </select>
+            </div>
+            <input type="hidden" name="language" value="{{ selected_language }}">
+            <input type="hidden" name="difficulty" value="{{ selected_difficulty }}">
+        </form>
+    </div>
+
+    <div class="main-content">
+        
+        <div class="sidebar">
+            <h2>Фильтрация</h2>
+            <form method="GET" action="{% url 'courses:courses' %}" class="filter-form">
+                <div class="filter-section" style="margin-top: 30px;">
+                    <label>Направление</label>
+                    <select name="language">
+                        <option value="">Все направления</option>
+                        {% for lang in languages %}
+                            {% if lang %}
+                                <option value="{{ lang }}" {% if selected_language == lang %}selected{% endif %}>
+                                    {{ lang }}
+                                </option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="filter-section">
+                    <label>Сложность</label>
+                    <select name="difficulty">
+                        <option value="">Все уровни</option>
+                        {% for diff in difficulties %}
+                            {% if diff %}
+                                <option value="{{ diff }}" {% if selected_difficulty == diff %}selected{% endif %}>
+                                    {{ diff }}
+                                </option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                </div>
+                <button type="submit" class="apply-filter-btn">Применить фильтры</button>
+            </form>
+        </div>
+        <div class="vertical-line"></div>
+        
+        <div class="course-grid">
+            <div class="grid">
+                {% for course in courses %}
+                <div class="course-card">
+                    <div class="course-info">
+                        <h3>{{ course.course_name }}</h3>
+                        <p class="course-language">{{ course.language_programming }}</p>
+                        <p class="course-level">Уровень сложности: {{ course.dfficulty_level }}</p>
+                        <p class="course-price">Стоимость: {{ course.price }}</p>
+                    </div>
+                    <a href="{% url 'courses:about_course' course_id=course.id_course %}" class="want-btn">Подробнее</a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.addEventListener('keydown', function(e) {
+                if (e.shiftKey && e.key.toLowerCase() === 'p') {
+                    const searchInput = document.querySelector('input[name="search"]');
+                    if (searchInput) {
+                        searchInput.focus();
+                        e.preventDefault();
+                    }
+                }
+            });
+        });
+    </script>
+</div>
+{% endblock %}

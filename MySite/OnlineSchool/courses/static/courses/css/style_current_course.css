@@ -1,0 +1,201 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: "Jura", sans-serif;
+    color: #000000;
+}
+
+header a {
+  display: block;
+  margin-bottom: 20px;
+  color: #555; 
+  text-decoration: none;
+}
+
+header h1 {
+  font-size: 2em;
+  color: #333; 
+  margin-bottom: 20px;
+}
+
+main {
+  display: flex;
+  gap: 30px; 
+}
+
+.left-column img {
+  width: 300px; 
+  border-radius: 10px; 
+}
+
+.right-column p {
+  color: #263410;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  margin-left: 10px;
+  width: 70%;
+}
+.right-column h1 {
+ font-family: "Jura", sans-serif;
+ font-weight: bold;
+}
+
+.duration {
+  margin: 15px 2px;
+  display: inline;
+  font-family: "Jua", sans-serif;
+}
+
+.tags {
+  
+  display: flex;
+  gap: 5px;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+.tags span {
+  background-color: #eee; 
+  color: #263410; 
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.9em;
+}
+.create-horizontal-line {
+    display: block;
+    width: 100%;
+    height: 50px;
+    max-width: 1200px;
+    margin: 30px auto;
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, transparent, #263410, transparent);
+}
+.program h2 {
+  font-family:  "Fustat", sans-serif;
+  font-size: 1.5em;
+  color: #333; 
+  margin-top: 30px;
+  margin-bottom: 25px;
+  text-align: center;
+  letter-spacing: 5px;
+}
+
+.program .module {
+  background-color: #B5BAAD; 
+  color: #000000; 
+  padding: 15px;
+  width: 70%;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.module.block {
+  background-color: #D9D9D9;
+  color: #000000; 
+}
+.module a{
+    text-decoration: none;
+    color: #000;
+}
+
+.program .module::after {
+    font-size: 18px; 
+    color: #fff; 
+    padding-left: 10px; 
+    margin-left: auto;
+    margin-right: 5%;
+}
+
+.program .module.module.block::after { content: "🔒︎";color: #00000084; } /* Галочка для "ПОСЛЕДНЕЕ АКТИВНОЕ ЗАНЯТИЕ" */
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 1200px) {
+    .container {
+        padding: 15px;
+    }
+
+    .right-column p {
+        width: 85%;
+    }
+
+    .program .module {
+        width: 85%;
+    }
+}
+
+@media (max-width: 992px) {
+    main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .left-column img {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .right-column p {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .tags {
+        margin-left: 0;
+        flex-wrap: wrap;
+    }
+
+    .program .module {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    .program h2 {
+        font-size: 1.3em;
+        letter-spacing: 3px;
+    }
+
+    .module {
+        padding: 12px;
+    }
+
+    .module a {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    .program h2 {
+        font-size: 1.2em;
+        letter-spacing: 2px;
+    }
+
+    .tags span {
+        font-size: 0.8em;
+        padding: 4px 8px;
+    }
+
+    .module {
+        padding: 10px;
+    }
+
+    .module a {
+        font-size: 0.85em;
+    }
+}

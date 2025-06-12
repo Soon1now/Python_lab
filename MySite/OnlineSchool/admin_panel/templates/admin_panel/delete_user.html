@@ -1,0 +1,17 @@
+{% extends 'main/layout.html' %}
+{% block title %}Удаление пользователя{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-body">
+            <h3 class="mb-4">Удалить пользователя?</h3>
+            <p>Вы уверены, что хотите удалить пользователя <strong>{{ user.first_name }} {{ user.last_name }}</strong> ({{ user.email }})?</p>
+            <form method="post">
+                {% csrf_token %}
+                <a href="{% url 'admin_panel:main_page_admin' %}" class="btn btn-secondary">Отмена</a>
+                <button type="submit" class="btn btn-danger">Удалить</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

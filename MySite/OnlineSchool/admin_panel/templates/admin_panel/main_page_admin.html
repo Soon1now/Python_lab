@@ -1,0 +1,125 @@
+{% extends 'admin_panel/layout_admin.html' %}
+{% load static %}
+{% block title %}Админ-панель{% endblock %}
+{% block styles %}
+
+{% endblock %}
+
+{% block content %}
+    <div class="admin-container">
+      <aside class="admin-sidebar">
+        <ul>
+          <li class="{% if active_tab == 'students' %}active{% endif %}">
+            <a href="?tab=students">Ученики</a>
+          </li>
+          <li class="{% if active_tab == 'teachers' %}active{% endif %}">
+            <a href="?tab=teachers">Преподаватели</a>
+          </li>
+          <li class="{% if active_tab == 'admins' %}active{% endif %}">
+            <a href="?tab=admins">Администраторы</a>
+          </li>
+          <li class="{% if active_tab == 'courses' %}active{% endif %}">
+            <a href="?tab=courses">Курсы</a>
+          </li>
+        </ul>
+      </aside>
+      <main class="admin-main">
+        {% if active_tab == 'students' %}
+          <h2>Ученики</h2>
+          <div class="d-flex justify-content-end mb-3">
+            <a href="{% url 'admin_panel:add_user' %}">Добавить ученика</a>
+          </div>
+          <table class="table">
+            <tr>
+              <th>ID</th><th>Имя</th><th>Фамилия</th><th>Email</th><th>Пароль</th><th>Действия</th>
+            </tr>
+            {% for student in students %}
+            <tr>
+              <td>{{ student.id_user }}</td>
+              <td>{{ student.first_name }}</td>
+              <td>{{ student.last_name }}</td>
+              <td>{{ student.email }}</td>
+              <td>{{ student.password }}</td>
+              <td>
+                <a href="{% url 'admin_panel:edit_user' student.id_user %}" class="btn btn-sm" style="background-color: #263410; color: #fff;">Редактировать</a>
+                <a href="{% url 'admin_panel:delete_user' student.id_user %}" class="btn btn-sm" style="background-color: #741303; color: #fff;" onclick="return confirm('Вы уверены, что хотите удалить пользователя?');">Удалить</a>
+              </td>
+            </tr>
+            {% endfor %}
+          </table>
+        {% elif active_tab == 'teachers' %}
+          <h2>Преподаватели</h2>
+          <div class="d-flex justify-content-end mb-3">
+            <a href="{% url 'admin_panel:add_user' %}">Добавить преподавателя</a>
+            <a href="{% url 'admin_panel:export_teachers_excel' %}" class="btn btn-sm" style="background-color: #263410; color: #fff; margin-left: 10px;">Экспорт в Excel</a>
+            <a href="{% url 'admin_panel:export_teachers_html' %}" class="btn btn-sm" style="background-color: #741303; color: #fff; margin-left: 10px;">Экспорт в HTML</a>
+          </div>
+          <table>
+            <tr>
+              <th>ID</th><th>Имя</th><th>Фамилия</th><th>Email</th><th>Пароль</th><th>Действия</th>
+            </tr>
+            {% for teacher in teachers %}
+            <tr>
+              <td>{{ teacher.id_user }}</td>
+              <td>{{ teacher.first_name }}</td>
+              <td>{{ teacher.last_name }}</td>
+              <td>{{ teacher.email }}</td>
+              <td>{{ teacher.password }}</td>
+              <td>
+                <a href="{% url 'admin_panel:edit_user' teacher.id_user %}" class="btn btn-sm" style="background-color: #263410; color: #fff;">Редактировать</a>
+                <a href="{% url 'admin_panel:delete_user' teacher.id_user %}" class="btn btn-sm" style="background-color: #741303; color: #fff;" onclick="return confirm('Вы уверены, что хотите удалить пользователя?');">Удалить</a>
+              </td>
+            </tr>
+            {% endfor %}
+          </table>
+        {% elif active_tab == 'admins' %}
+          <h2>Администраторы</h2>
+          <div class="d-flex justify-content-end mb-3">
+            <a href="{% url 'admin_panel:add_user' %}">Добавить администратора</a>
+          </div>
+          <table> 
+            <tr>
+              <th>ID</th><th>Имя</th><th>Фамилия</th><th>Email</th><th>Пароль</th><th>Действия</th>
+            </tr>
+            {% for admin in admins %}
+            <tr>
+              <td>{{ admin.id_user }}</td>
+              <td>{{ admin.first_name }}</td>
+              <td>{{ admin.last_name }}</td>
+              <td>{{ admin.email }}</td>
+              <td>{{ admin.password }}</td>
+              <td>
+                <a href="{% url 'admin_panel:edit_user' admin.id_user %}" class="btn btn-sm" style="background-color: #263410; color: #fff;">Редактировать</a>
+                <a href="{% url 'admin_panel:delete_user' admin.id_user %}" class="btn btn-sm" style="background-color: #741303; color: #fff;" onclick="return confirm('Вы уверены, что хотите удалить пользователя?');">Удалить</a>
+              </td>
+            </tr>
+            {% endfor %}
+          </table>
+        {% elif active_tab == 'courses' %}
+          <h2>Курсы</h2>
+          <div class="d-flex justify-content-end mb-3">
+            <a href=#>Добавить курс</a>
+          </div>
+          <table>
+            <tr>
+              <th>ID</th><th>Название</th><th>Язык</th><th>Сложность</th><th>Цена</th><th>Действия</th>
+            </tr>
+            {% for course in courses %}
+            <tr>
+              <td>{{ course.id_course }}</td>
+              <td>{{ course.course_name }}</td>
+              <td>{{ course.language_programming }}</td>
+              <td>{{ course.dfficulty_level }}</td>
+              <td>{{ course.price }}</td>
+              <td>
+                <a href=# class="btn btn-sm" style="background-color: #263410; color: #fff;">Редактировать</a>
+                <a href=# class="btn btn-sm" style="background-color: #741303; color: #fff;" onclick="return confirm('Вы уверены, что хотите удалить курс?');">Удалить</a>
+              </td>
+            </tr>
+            {% endfor %}
+          </table>
+        {% endif %}
+      </main>
+    </div>
+    
+{% endblock %}

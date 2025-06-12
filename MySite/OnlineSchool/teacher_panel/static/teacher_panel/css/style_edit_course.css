@@ -1,0 +1,234 @@
+.edit-course-container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.edit-course-container h1 {
+    color: #333;
+    margin-bottom: 20px;
+    font-family: "Jura", sans-serif;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+    font-family: "Jura", sans-serif;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: "Jura", sans-serif;
+}
+
+.form-group textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #263410;
+}
+
+.course-image-preview {
+    width: 100%;
+    max-width: 400px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 10px auto;
+    display: block;
+}
+
+.lessons-section {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.lessons-section h2 {
+    color: #333;
+    margin-bottom: 15px;
+    font-family: "Jura", sans-serif;
+}
+
+.lesson-item {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.lesson-item h3 {
+    color: #333;
+    margin-bottom: 10px;
+    font-family: "Jura", sans-serif;
+}
+
+.lesson-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.btn-add-lesson,
+.btn-save,
+.btn-cancel {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: "Jura", sans-serif;
+}
+
+.btn-add-lesson {
+    background-color: #263410;
+    color: white;
+}
+
+.btn-save {
+    background-color: #263410;
+    color: white;
+    display: block;
+    margin: 20px auto;
+}
+
+.btn-cancel {
+    background-color: #666;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn-add-lesson:hover,
+.btn-save:hover {
+    background-color: #1a250c;
+}
+
+.btn-cancel:hover {
+    background-color: #555;
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 768px) {
+    .edit-course-container {
+        margin: 20px;
+        padding: 15px;
+    }
+
+    .edit-course-container h1 {
+        font-size: 1.8em;
+    }
+
+    .course-image-preview {
+        height: 200px;
+    }
+
+    .lessons-section h2 {
+        font-size: 1.4em;
+    }
+
+    .lesson-item h3 {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .edit-course-container {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .edit-course-container h1 {
+        font-size: 1.5em;
+    }
+
+    .form-group label {
+        font-size: 14px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        font-size: 14px;
+        padding: 6px;
+    }
+
+    .course-image-preview {
+        height: 180px;
+    }
+
+    .lessons-section h2 {
+        font-size: 1.3em;
+    }
+
+    .lesson-item {
+        padding: 10px;
+    }
+
+    .lesson-item h3 {
+        font-size: 1.1em;
+    }
+
+    .btn-add-lesson,
+    .btn-save,
+    .btn-cancel {
+        font-size: 13px;
+        padding: 6px 15px;
+    }
+}
+
+@media (max-width: 360px) {
+    .edit-course-container h1 {
+        font-size: 1.3em;
+    }
+
+    .form-group label {
+        font-size: 13px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        font-size: 13px;
+        padding: 5px;
+    }
+
+    .course-image-preview {
+        height: 160px;
+    }
+
+    .lessons-section h2 {
+        font-size: 1.2em;
+    }
+
+    .lesson-item h3 {
+        font-size: 1em;
+    }
+
+    .btn-add-lesson,
+    .btn-save,
+    .btn-cancel {
+        font-size: 12px;
+        padding: 5px 12px;
+    }
+} 
